@@ -1,0 +1,209 @@
+creating database
+==================
+CREATE DATABASE Student ; 
+
+CREATE OR REPLACE DATABASE Student ;  
+
+Drop Database>>>>>DROP DATABASE Database_Name;  ex-DROP DATABASE Student;  
+
+Syntax of Rename Database in SQL
+================================
+ALTER DATABASE old_database_name MODIFY NAME = new_database_name;  
+ex-ALTER DATABASE Student MODIFY NAME = College ;  
+Syntax of Rename Database in MySQL
+====================================
+RENAME DATABASE old_database_name TO new_database_name;  
+
+CREATE TABLE
+=============
+CREATE TABLE STUDENTS (  
+ID INT                           NOT NULL,  
+NAME VARCHAR (20) NOT NULL,  
+AGE INT                         NOT NULL,  
+ADDRESS CHAR (25),  
+PRIMARY KEY (ID)  
+);  
+
+SQL> desc students
+
+FIELD	TYPE	NULL	KEY	DEFAULT	EXTRA
+ID	Int(11)	NO	PRI		
+NAME	Varchar(20)	NO			
+AGE	Int(11)	NO			
+ADDRESS	Varchar(25)	YES		NULL	
+
+
+SQL CREATE TABLE Example in MySQL
+==================================
+CREATE TABLE Employee  
+(  
+EmployeeID int,  
+FirstName varchar(255),  
+LastName varchar(255),  
+Email varchar(255),  
+AddressLine varchar(255),  
+City varchar(255)  
+);  
+SQL CREATE TABLE Example in Oracle
+====================================
+CREATE TABLE Employee  
+(  
+EmployeeID number(10),  
+FirstName varchar2(255),  
+LastName varchar2(255),  
+Email varchar2(255),  
+AddressLine varchar2(255),  
+City varchar2(255)  
+);  
+
+Create a Table using another table
+===================================
+CREATE TABLE table_name  AS  
+SELECT column1, column2,...   
+FROM old_table_name WHERE ..... ;  
+The following SQL creates a copy of the employee table.  
+
+EX-CREATE TABLE EmployeeCopy AS  
+SELECT EmployeeID, FirstName, Email  
+FROM Employee;  
+
+DROP Students
+==============
+DROP TABLE students;
+
+SQL DELETE TABLE
+=================
+DELETE FROM table_name [WHERE condition]  
+
+SQL RENAME TABLE
+=================
+ALTER TABLE Students RENAME TO Student_Details ; 
+SQL TRUNCATE TABLE
+===================
+TRUNCATE TABLE table_name;  
+TRUNCATE TABLE Students;  
+
+SQL COPY TABLE
+===============
+SELECT * INTO New_table_name FROM old_table_name;
+SELECT * INTO Class_12_Students FROM Students;  
+
+SQL INSERT
+===========
+INSERT INTO table_name (column1, column2, column3....)  
+VALUES (value1, value2, value3.....); 
+
+INSERT INTO STUDENTS VALUES (1,'preetish',30,'chhend');
+INSERT INTO STUDENTS VALUES (2,'nikhil',30,'pune');
+so on
+select * from students;
+ID NAME                        AGE ADDRESS
+--- -------------------- ---------- -------------------
+  1 preetish                     30 chhend
+  2 nikhil                       30 pune
+  3 saroj                        34 rourkela
+  4 kureshu                      28 bangalore
+for rettriving a single column
+===============================
+>>>>select id from students;
+ID
+--
+1
+2
+3
+4
+
+
+for retriving multicolumns
+==========================
+select id,name from students;
+ID NAME
+--------
+1 Preetish
+2 Nikhil
+
+UNIQUE/DISTINCT
+-------
+select unique ename from emp;
+select distinct ename from emp;
+SQL SELECT COUNT
+================
+SELECT COUNT(column_name) FROM table_name;  
+SELECT COUNT(DEPTNO) FROM EMP;>>>>>>>>>>COUNT(DEPTNO)=14
+select count(deptno)as deptid from emp;>>>>DEPTID=14
+---------------------------------------------------
+SQL WHERE
+==========
+SELECT COUNT(column_name) FROM table_name WHERE [condition];
+select count (SAL) from emp where JOB='SALESMAN';
+
+FIRST
+=========
+SELECT FIRST(customer_name) AS first_customer FROM customers; 
+LAST
+=======
+SELECT LAST (CUSTOMER_NAME) AS LAST_CUSTOMER FROM CUSTOMERS;
+
+IN
+=====
+select * FROM students WHERE NAME IN ('PREETISH','SHIBA');
+
+DATE
+====
+select * from emp WHERE HIREDATE BETWEEN '20-FEB-81' and '03-DEC-81';
+
+SELECT SUM (sal) AS "Total Salary"  
+FROM emp  
+WHERE sal > 2000;
+
+SELECT SUM ( DISTINCT sal) AS "Total Salary"  
+FROM emp  
+WHERE sal > 2000; 
+
+IS NULL
+========
+SELECT COMM, ENAME, JOB FROM EMP    
+WHERE COMM IS  NULL; 
+
+IS NOT NULL
+===========
+SELECT COMM, ENAME, JOB FROM EMP    
+WHERE COMM IS NOT NULL; 
+
+WHERE
+=======
+SELECT ENAME, COMM, SAL   
+FROM    emp  
+WHERE SAL>2000;
+
+AND
+===
+ SELECT *FROM emp WHERE SAL>2000 AND ENAME = 'FORD'; 
+
+OR
+===
+SELECT *FROM emp WHERE DEPTNO = 20 OR ENAME = 'SMITH'; 
+
+AS
+==
+SELECT HIREDATE AS 'HDate', ENAME As 'EMPNAME', SAL FROM emp;  
+  
+SELECT day_of_order AS 'Date', Customer As 'Client', Product, Quantity FROM orders;  
+
+
+
+
+
+ 
+  
+
+
+
+
+
+
+
+
+
+
+
